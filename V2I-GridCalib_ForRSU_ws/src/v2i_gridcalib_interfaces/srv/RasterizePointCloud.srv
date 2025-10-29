@@ -1,0 +1,24 @@
+# Service Request
+# 服务请求部分
+#
+# Input fan-shaped point cloud from the RSU.
+# The point cloud must contain x, y, z, and intensity fields.
+# 从路侧单元(RSU)输入的扇形点云。
+# 点云必须包含 x, y, z, 和 intensity 字段。
+sensor_msgs/msg/PointCloud2 pointcloud_sector
+
+# Approximate distance to the vehicle, obtained from C-V2X or initial estimation.
+# This distance is used to select the optimal virtual camera intrinsics.
+# 与车辆的大致距离，通过 C-V2X 或初步估计获得。
+# 该距离用于选择最优的虚拟相机内参。
+float32 approximate_distance
+
+---
+# Service Response
+# 服务响应部分
+#
+# The generated 4-channel rasterized view.
+# Encoding is '32FC4', where channels are (Intensity, X, Y, Z).
+# 生成的四通道光栅化视图。
+# 图像编码为 '32FC4'，通道顺序为 (Intensity, X, Y, Z)。
+sensor_msgs/msg/Image raster_view
